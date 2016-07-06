@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+          <script type="text/javascript" src="../js/md5.js"></script>
+
+    <title>home-login</title>
+
+        <!-- JQuery -->
+   
+
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+
+<style>
+
+body{
+    background-image:url(http://i66.tinypic.com/24qqwxk.jpg);
+    background-repeat:no-repeat; 
+    display:block; 
+    background-size: cover;
+}
+
+
+form.form-horizontal{
+    width:600px;
+    height:400px;
+}
+
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+
+  <script type="text/javascript">
+    
+    $(document).ready(function(){
+           jQuery.fn.center = function () {
+          this.css("position","absolute");
+          this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                $(window).scrollTop()) + "px");
+
+          console.log("top");
+
+          this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                $(window).scrollLeft()) + "px");
+          return this;
+        }
+
+       $("#login").center(); 
+
+       //$("#login").append("<h1 style='align:left; color:white;'>" +  "Perchè utilizzare smarthome.net ?"  + "</h1>");
+
+    });
+
+
+  </script>
+
+
+
+<body class="full-bg-img">
+
+
+    <!-- inizio-->
+<header>
+    <!--Navbar-->
+    <nav class="navbar  ">
+
+        <div class="container">
+
+            <!--Collapse content-->
+            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+                <!--Navbar Brand-->
+                <a class="navbar-brand" href="#"> <span style="color:black;"> Smarthome </span></a>
+
+            </div>
+            <!--/.Collapse content-->
+        </div>
+
+    </nav>
+    <!--/.Navbar-->
+</header>
+
+<br>
+
+  <main>
+
+        <div id="login" class="form-horizontal" role="form">
+
+  <div class="form-group">
+   <label class="control-label col-sm-4" for="email"> </label> 
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="nickname" placeholder="Nome utente">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="password"> </label>
+    <div class="col-sm-4"> 
+      <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+  </div>
+
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-4 col-sm-2">
+
+        <label> <input class="col-md-5" type="checkbox"> Remember me </label>   
+
+        <label> <button class="col-md-6" id="loginBtn">invia</button> </label>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+</main>
+
+
+    <!-- /inizio-->
+    
+
+    <!-- SCRIPTS -->
+  
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <script type="text/javascript">
+        var hash;
+            $("#loginBtn").click(function(){
+              console.log("click");
+              hash = md5($("#password").val());
+              nickname = $("#nickname").val();
+              console.log(hash + " " + $("#nickname").val());
+              
+              $.ajax({
+                url: "/trylogin",
+                type: "POST",
+                data: {nickname: nickname, password: hash},
+                success: function(data){
+                  window.location = data;
+                }
+              });
+          });
+    </script>
+</body>
+
+</html>
+
+
+<!--http://orig11.deviantart.net/20eb/f/2015/030/6/f/_minflat__dark_material_design_wallpaper__4k__by_dakoder-d8fjqzu.jpg-->

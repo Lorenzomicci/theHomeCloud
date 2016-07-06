@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>registrazione</title>
+</head>
+<body>
+<h1>REGISTRAZIONE</h1>
+<%=error%>
+<form method="post" action="/tryregistration">
+<p><%=firstname%> <input type="text" name="firstname" id="firstname" value=<%=data.vfirstname%>></p>
+<p><%=lastname%> <input type="text" name="lastname" id="lastname" value=<%=data.vlastname%>></p>
+<p><%=datebirth%> <input type="text" name="datebirth" id="datebirth" value=<%=data.vdatebirth%>></p>
+<p><%=citybirth%> <input type="text" name="citybirth" id="citybirth" value=<%=data.vcitybirth%> ></p>
+<p><%=residence%> <input type="text" name="residence" id="residence" value=<%=data.vresidence%>></p>
+<p><%=address%> <input type="text" name="address" id="address" value=<%=data.vaddress%>></p>
+<!--<p><%=province%> <input type="text" name="province" id="province"></p>-->
+<p><%=cap%> <input type="text" name="cap" id="cap" value=<%=data.vcap%>></p>
+<p><%=nickname%> <input type="text" name="nickname" id="nickname" value=<%=data.vnickname%>></p>
+<p><%=password%> <input type="password" name="password" id="password"></p>
+<p><%=password2%> <input type="password" name="password2" id="password2"></p>
+<p><%=email%> <input type="text" name="email" id="email" value=<%=data.vemail%>></p>
+<input type="submit" value= <%=signup%> >
+</form>
+
+
+
+</body>
+</html>

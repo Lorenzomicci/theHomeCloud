@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<script type="text/javascript" src="../js/md5.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+<body>
+
+		</p>nickname<input type="text" name="nickname" id="nickname"></p>
+		</p>password<input type="password" name="password" id="password"></p>
+		<button id="loginButton">login</button>
+	<p><%=errorLogin%></p>
+</form>
+	<script type="text/javascript">
+	var hash;
+			$("#loginButton").click(function(){
+				hash = md5($("#password").val());
+				nickname = $("#nickname").val();
+				console.log(hash + " " + $("#nickname").val());
+				
+				$.ajax({
+					url: "/trylogin",
+					type: "POST",
+					data: {nickname: nickname, password: hash},
+					success: function(data){
+						window.location = data;
+					}
+				});
+		});
+	</script>
+</body>
+</html>
